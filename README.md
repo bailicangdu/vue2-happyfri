@@ -1,17 +1,17 @@
 # happyfri
 
-> A Vue.js project
+> A Vue2.js project
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 开启本地服务器localhost:8080
 npm run dev
 
-# build for production with minification
+# 发布环境
 npm run build
 ```
 
