@@ -1,10 +1,11 @@
 <template>
-  	<div>
-    	<router-link to="/item">首页</router-link>
+  	<div class="home_container">
+        <itemcontainer father-component="home"></itemcontainer>
   	</div>
 </template>
 
 <script>
+import itemcontainer from '../../components/itemcontainer'
 
 export default {
 	name: 'home',
@@ -14,11 +15,13 @@ export default {
     	}
   	},
   	components: {
-  		
+  		itemcontainer
   	},
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+    .home_container{
 
+    }
 </style>

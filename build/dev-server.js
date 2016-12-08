@@ -17,6 +17,7 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 var compiler = webpack(webpackConfig)
 
+
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
     stats: {
@@ -46,6 +47,7 @@ Object.keys(proxyTable).forEach(function(context) {
     }
     app.use(proxyMiddleware(context, options))
 })
+
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())

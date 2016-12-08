@@ -1,7 +1,7 @@
-const ADD_SCORES = 'ADD_SCORES'
+const ADD_ITEMNUM = 'ADD_ITEMNUM'
 
 export default {
-	[ADD_SCORES](state, payload) {
-		state.scores += payload.num;
+	[ADD_ITEMNUM](state, payload) {
+		state.itemNum += payload.num;
 	}
 }
