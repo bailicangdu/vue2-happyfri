@@ -5,13 +5,13 @@
 ## Build Setup
 
 ``` bash
-#安装依赖
+# 安装依赖
 npm install
 
-#开启本地服务器localhost:8080
+# 开启本地服务器localhost:8080
 npm run dev
 
-#发布环境
+# 发布环境
 npm run build
 ```
 
