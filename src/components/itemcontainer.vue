@@ -13,9 +13,9 @@
     			<div class="item_list_container">
     				<header class="item_title">{{itemDetail[itemNum-1].title}}</header>
     				<ul>
-    					<li  v-for="(item, index) in itemDetail[itemNum-1].content" @click="choosed(index)" class="item_list">
+    					<li  v-for="(item, index) in itemDetail[itemNum-1].content" @click="choosed(index, item.id)" class="item_list">
     						<span class="option_style" v-bind:class="{'has_choosed':choosedNum==index}">{{chooseType(index)}}</span>
-    						<span class="option_detail">{{item}}</span>
+    						<span class="option_detail">{{item.text}}</span>
     					</li>
     				</ul>
     			</div>
@@ -36,6 +36,7 @@ export default {
 		return {
 			itemId: null,
 			choosedNum: null,
+			choosedId:null
 		}
 	},
   	props:['fatherComponent'],
@@ -58,7 +59,9 @@ export default {
   		nextItem: function (){
   			if (this.choosedNum !== null) {
 	  			this.choosedNum = null;
-	  			this.$store.dispatch('addNum')
+	  			this.$store.dispatch('addNum',this.choosedId)
+  			}else{
+  				alert('您还没有选择题目哦')
   			}
   		},
 	  	chooseType: type => {
@@ -69,12 +72,17 @@ export default {
 	  			case 3: return 'D';
 	  		}
 	  	},
-	  	choosed: function (type){
+	  	choosed: function (type,id){
 	  		this.choosedNum = type;
+	  		this.choosedId = id;
 	  	},
 	  	submitAnswer: function (){
 	  		if (this.choosedNum !== null) {
-	  			this.$router.push('score')
+	  			this.$store.dispatch('addNum',this.choosedId)
+	  			console.log(this.$store.state.answerid)
+	  			//this.$router.push('score')
+  			}else{
+  				alert('您还没有选择题目哦')
   			}
 	  	}  	
 	},
