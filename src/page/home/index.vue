@@ -13,12 +13,7 @@ export default {
   		itemcontainer
   	},
     created(){
-        this.$store.dispatch('getData').then(res => {
-            console.log(res)
-        }).catch( error => {
-            console.log(error)
-        })
-
+        this.$store.dispatch('getData')
     }
 }
 </script>

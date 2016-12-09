@@ -12,6 +12,9 @@ export default {
   	components: {
    		itemcontainer
   	},
+  	created(){
+  		this.$store.commit('REMBER_TIME');
+  	}
 }
 
 </script>

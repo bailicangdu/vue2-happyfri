@@ -79,8 +79,9 @@ export default {
 	  	submitAnswer: function (){
 	  		if (this.choosedNum !== null) {
 	  			this.$store.dispatch('addNum',this.choosedId)
-	  			console.log(this.$store.state.answerid)
-	  			//this.$router.push('score')
+	  			console.log(this.$store.state.answerid,this.$store.state.allTime)
+	  			clearInterval(this.$store.state.timer)
+	  			this.$router.push('score')
   			}else{
   				alert('您还没有选择题目哦')
   			}
@@ -167,7 +168,7 @@ export default {
 	}
 	.item_list{
 		font-size: 0;
-		margin-top: 0.5rem;
+		margin-top: 0.4rem;
 		width: 10rem;
 		span{
 			display: inline-block;
@@ -181,7 +182,7 @@ export default {
 			border: 0.025rem solid #fff;
 			border-radius: 50%;
 			line-height: 0.725rem;
-			text-indent: 0.16rem;
+			text-align: center;
 			margin-right: 0.3rem;
 			font-size: 0.5rem;
 			font-family: 'Arial';
