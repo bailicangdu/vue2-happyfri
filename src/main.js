@@ -3,23 +3,29 @@ import VueRouter from 'vue-router'
 import routes from './router/router'
 import store from './store/'
 import ajax from './config/ajax'
+import FastClick from './config/fastclick'
 import {
-	basePath,
+	basePath
 } from './config/config'
-import './config/fastclick'
 import './style/common'
 import './config/rem'
 
 
 Vue.use(VueRouter)
-
 const router = new VueRouter({
 	routes
 })
 
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
+}
+
+
 let url = window.location.href;
 if (!(/users_id=/gi.test(url))) {
-	//window.location.href = 'http://wxinterface.putaoevent.com?wx_account_id=3&callback_url=' + basePath
+	window.location.href = 'http://wxinterface.putaoevent.com?wx_account_id=3&callback_url=' + basePath
 }
 
 let jssdkUrl = url.split('#')[0]

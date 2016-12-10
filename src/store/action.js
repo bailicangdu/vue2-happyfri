@@ -20,9 +20,15 @@ export default {
 		}) {
 			ajax('GET', 'http://operating-activities.putao.com/happyfriday?active_topic_id=4').
 			then((res) => {
-				commit('INIT_DATA', {
+				commit('GET_DATA', {
 					res
 				})
 			})
+		},
+
+		initializeData({
+			commit
+		}) {
+			commit('INITIALIZE_DATA')
 		}
 }

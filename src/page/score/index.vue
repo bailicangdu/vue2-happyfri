@@ -1,7 +1,7 @@
 <template>
   	<div>
     	<div class="your_scores_container">
-            <header class="your_scores"><span>{{score}}</span>分！</header>
+            <header class="your_scores"><span class="score_num">{{score}}</span><span class="fenshu">分！</span></header>
             <div class="result_tip">{{scoreTips}}</div>
         </div>
         <div class="share_button" @click="showCover"></div>
@@ -26,6 +26,7 @@ export default {
             showHide: false,
             score: 0,
             scoreTips:'',
+            shareTitle:'',
             scoreTipsArr:['可怜智商就和一坨屎一样！','智商达到正常人的水准！','不要嘚瑟还有进步的空间！','智商离爆表只差一步了！','智商爆表了！'],
         }
     },
@@ -36,58 +37,76 @@ export default {
         getScoreTip: function (){
             if(this.score <= 50) {
                 this.scoreTips = this.scoreTipsArr[0];
+                this.shareTitle = '我拿了' + this.score + '分，智商被碾压，来挑战我吧！';
                 return
             }
             if(this.score <= 70) {
                 this.scoreTips = this.scoreTipsArr[1];
+                this.shareTitle = '我拿了' + this.score + '分，离完美只差一步，来挑战我吧！';
                 return
             }
-            if(this.score == 80) {
+            if(this.score <= 80) {
                 this.scoreTips = this.scoreTipsArr[2];
+                this.shareTitle = '我拿了' + this.score + '分，离完美只差一步，来挑战我吧！';
                 return
             }
-            if(this.score == 90) {
+            if(this.score <= 90) {
                 this.scoreTips = this.scoreTipsArr[3];
+                this.shareTitle = '我拿了' + this.score + '分，离完美只差一步，来挑战我吧！';
                 return
             }
-            if(this.score == 100) {
+            if(this.score <= 100) {
                 this.scoreTips = this.scoreTipsArr[4];
+                this.shareTitle = '我拿了' + this.score + '分，智商爆表，来挑战我吧！';
             }
         },
-        shareTitle: function (){
-
-            wx.ready(function() {
+        setShareTitle: function (){
+            wx.ready(() => {
                 wx.onMenuShareTimeline({
-                    title: '第一个题目，进来才知道', // 分享标题
+                    title: this.shareTitle, // 分享标题
                     link: basePath, // 分享链接
                     imgUrl: 'http://test.fe.ptdev.cn/happyfri/pthome.jpeg', // 分享图标
+                    success: () => {
+                        this.showHide = false
+                    },
+                    cancel: () => {
+                        this.showHide = false
+                    }
                 });
 
                 wx.onMenuShareAppMessage({
-                    title: '第一个题目，进来才知道', // 分享标题
+                    title: this.shareTitle, // 分享标题
                     desc: '这些知识我打赌你一个都不知道', // 分享描述
                     link: basePath, // 分享链接
                     imgUrl: 'http://test.fe.ptdev.cn/happyfri/pthome.jpeg', // 分享图标
                     type: 'link', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: () => {
+                        this.showHide = false
+                    },
+                    cancel: () => {
+                        this.showHide = false
+                    }
                 });
             })
-                
         }
     },
 	created(){
         let strJson = JSON.stringify(this.$store.state.answerid)
-        // ajax('GET', 'http://operating-activities.putao.com/service/record/add?user_id=2&active_id=2&active_topic_id=4&record=11&time='+ this.$store.state.allTime+'&answer='+strJson).
+        // ajax('GET', 'http://operating-activities.putao.com/service/record/add?user_id=' + this.$store.state.user_id + '&active_id=' + this.$store.state.active_id + '&active_topic_id=' + this.$store.state.active_topic_id + '&record=11&time='+ this.$store.state.allTime+'&answer='+strJson).
         // then((res) => {
         //     this.score = Number(res.score);
         //     this.getScoreTip();
+        //     this.setShareTitle();
         // }).
         // catch(() => {
         //     alert('获取数据失败')
         // })
 
-        this.getScoreTip();
+        this.score = Math.round(Math.random()*100)
 
+        this.getScoreTip();
+        this.setShareTitle();
         
     }
 }
@@ -111,13 +130,15 @@ export default {
             width: 100%;
             text-indent: 3.3rem;
             top: 4.7rem;
-            color: #a51d31;
             font-size: 1.4rem;
             font-weight: 900;
             -webkit-text-stroke: 0.05rem #412318;
             font-family: 'Microsoft YaHei';
-            span{
+            .score_num{
                 font-family: Tahoma,Helvetica,Arial;
+                color: #a51d31;
+            }
+            .fenshu{
                 color: #a51d31;
             }
         }

@@ -2,7 +2,7 @@
   	<section>
     	<header class="top_tips">
     		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
-    		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
+    		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{this.$store.state.TransformNum[itemNum - 1]}}</span>
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
@@ -29,7 +29,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import ajax from '../config/ajax'
-
+import {basePath, targetUrl, urlArr} from '../config/config'
 export default {
 	name: 'itemcontainer',
 	data() {
@@ -41,17 +41,7 @@ export default {
 	},
   	props:['fatherComponent'],
   	computed: mapState({
-	  	itemNum: state => {
-	  		// let splitNum = String(state.itemNum).split('');
-	  		// let bigNum = '';
-	  		// for (let i = 0; i < splitNum.length; i++) {
-	  		// 	let arrNumber =  i == 0? Number(splitNum[i]) - 1 : Number(splitNum[i]);
-	  		// 	console.log(arrNumber)
-	  		// 	bigNum += state.TransformNum[arrNumber];
-	  		// }
-	  		//console.log(bigNum)
-	  		return state.itemNum
-	  	},
+	  	itemNum: state => state.itemNum,
   		level: state => state.level,
   		itemDetail: state => state.itemDetail
 	}),
@@ -61,7 +51,7 @@ export default {
 	  			this.choosedNum = null;
 	  			this.$store.dispatch('addNum',this.choosedId)
   			}else{
-  				alert('您还没有选择题目哦')
+  				alert('您还没有选择答案哦')
   			}
   		},
 	  	chooseType: type => {
@@ -82,14 +72,22 @@ export default {
 	  			clearInterval(this.$store.state.timer)
 	  			this.$router.push('score')
   			}else{
-  				alert('您还没有选择题目哦')
+  				alert('您还没有选择答案哦')
   			}
-	  	}  	
+	  	},
+	  	preLoadImg: function (urlArr){
+			for (let i = 0; i < urlArr.length; i++) {
+	  			let img = new Image(); 
+				img.src = targetUrl + urlArr[i]; 
+			}
+	  	}
 	},
 	created(){
+		this.$store.dispatch('initializeData');
 		if(this.$store.state.itemDetail.length == 0){
 			//this.$store.dispatch('getData')
 		}
+		this.preLoadImg(urlArr)
 	}
 }
 </script>
@@ -107,7 +105,7 @@ export default {
 		.num_tip{
 			position: absolute;
 			left: 0.48rem;
-			bottom: 0.95rem;
+			bottom: 1.1rem;
 			height: 0.7rem;
 			width: 2.5rem;
 			font-size: 0.6rem;
@@ -180,7 +178,7 @@ export default {
 		.option_style{
 			height: 0.725rem;
 			width: 0.725rem;
-			border: 0.025rem solid #fff;
+			border: 1px solid #fff;
 			border-radius: 50%;
 			line-height: 0.725rem;
 			text-align: center;
