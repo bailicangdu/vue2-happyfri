@@ -4,18 +4,18 @@
     		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
     		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
     	</header>
-    	<div v-if="fatherComponent == 'home'">
+    	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
     		<router-link to="/item" class="start button_style"></router-link>
     	</div>
-    	<div v-if="fatherComponent == 'item'">
+    	<div v-if="fatherComponent == 'item'" >
     		<div class="item_back item_container_style">
-    			<div class="item_list_container">
-    				<header class="item_title">{{itemDetail[itemNum-1].title}}</header>
+    			<div class="item_list_container" v-if="this.$store.state.itemDetail.length > 0">
+    				<header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
     				<ul>
-    					<li  v-for="(item, index) in itemDetail[itemNum-1].content" @click="choosed(index, item.id)" class="item_list">
+    					<li  v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" class="item_list">
     						<span class="option_style" v-bind:class="{'has_choosed':choosedNum==index}">{{chooseType(index)}}</span>
-    						<span class="option_detail">{{item.text}}</span>
+    						<span class="option_detail">{{item.answer_name}}</span>
     					</li>
     				</ul>
     			</div>
@@ -28,7 +28,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-
+import ajax from '../config/ajax'
 
 export default {
 	name: 'itemcontainer',
@@ -79,7 +79,6 @@ export default {
 	  	submitAnswer: function (){
 	  		if (this.choosedNum !== null) {
 	  			this.$store.dispatch('addNum',this.choosedId)
-	  			console.log(this.$store.state.answerid,this.$store.state.allTime)
 	  			clearInterval(this.$store.state.timer)
 	  			this.$router.push('score')
   			}else{
@@ -88,7 +87,9 @@ export default {
 	  	}  	
 	},
 	created(){
-		
+		if(this.$store.state.itemDetail.length == 0){
+			this.$store.dispatch('getData')
+		}
 	}
 }
 </script>
