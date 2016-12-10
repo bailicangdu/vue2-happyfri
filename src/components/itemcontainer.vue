@@ -88,7 +88,7 @@ export default {
 	},
 	created(){
 		if(this.$store.state.itemDetail.length == 0){
-			this.$store.dispatch('getData')
+			//this.$store.dispatch('getData')
 		}
 	}
 }
