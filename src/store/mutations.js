@@ -3,14 +3,20 @@ const ADD_ITEMNUM = 'ADD_ITEMNUM'
 const REMBER_ANSWER = 'REMBER_ANSWER'
 const REMBER_TIME = 'REMBER_TIME'
 const INITIALIZE_DATA = 'INITIALIZE_DATA'
+const GET_USER_INFORM = 'GET_USER_INFORM'
 
 export default {
 	[GET_DATA](state, payload) {
 		if (payload.res.httpStatusCode == 200) {
 			state.itemDetail = payload.res.topiclist;
+			state.level = payload.res.topiclist[0].active_topic_phase
 			state.active_id = payload.res.topiclist[0].active_id;
 			state.active_topic_id = payload.res.topiclist[0].active_topic_id;
 		}
+	},
+
+	[GET_USER_INFORM](state, payload) {
+		state.user_id = payload.res.users_id;
 	},
 
 	[ADD_ITEMNUM](state, payload) {

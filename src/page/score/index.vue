@@ -93,20 +93,21 @@ export default {
     },
 	created(){
         let strJson = JSON.stringify(this.$store.state.answerid)
-        // ajax('GET', 'http://operating-activities.putao.com/service/record/add?user_id=' + this.$store.state.user_id + '&active_id=' + this.$store.state.active_id + '&active_topic_id=' + this.$store.state.active_topic_id + '&record=11&time='+ this.$store.state.allTime+'&answer='+strJson).
-        // then((res) => {
-        //     this.score = Number(res.score);
-        //     this.getScoreTip();
-        //     this.setShareTitle();
-        // }).
-        // catch(() => {
-        //     alert('获取数据失败')
-        // })
+        ajax('GET', 'http://operating-activities.putao.com/service/record/add?user_id=' + this.$store.state.user_id + '&active_id=' + this.$store.state.active_id + '&active_topic_id=' + this.$store.state.active_topic_id + '&record=11&time='+ this.$store.state.allTime+'&answer='+strJson).
+        then((res) => {
+            this.score = Number(res.score);
+            this.getScoreTip();
+            this.setShareTitle();
+        }).
+        catch(() => {
+            this.getScoreTip();
+            this.setShareTitle();
+        })
 
-        this.score = Math.round(Math.random()*100)
+        // this.score = Math.round(Math.random()*100)
 
-        this.getScoreTip();
-        this.setShareTitle();
+        // this.getScoreTip();
+        // this.setShareTitle();
         
     }
 }

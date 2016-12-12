@@ -10,17 +10,20 @@ import {
 import './style/common'
 import './config/rem'
 
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
+}
 
 Vue.use(VueRouter)
 const router = new VueRouter({
 	routes
 })
 
-if ('addEventListener' in document) {
-	document.addEventListener('DOMContentLoaded', function() {
-		FastClick.attach(document.body);
-	}, false);
-}
+
+let img = new Image();
+img.src = basePath + 'static/img/1-1.jpg';
 
 
 let url = window.location.href;
