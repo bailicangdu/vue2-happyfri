@@ -16,8 +16,9 @@
 </template>
 
 <script>
+
 import ajax from '../../config/ajax'
-import {basePath, targetUrl} from '../../config/config'
+import {basePath, targetUrl, activeTopicId} from '../../config/config'
 
 export default {
 	name: 'score',
@@ -64,7 +65,7 @@ export default {
             wx.ready(() => {
                 wx.onMenuShareTimeline({
                     title: this.shareTitle, // 分享标题
-                    link: basePath, // 分享链接
+                    link: basePath + '?' + activeTopicId, // 分享链接
                     imgUrl: 'http://test.fe.ptdev.cn/happyfri/pthome.jpeg', // 分享图标
                     success: () => {
                         this.showHide = false
@@ -77,7 +78,7 @@ export default {
                 wx.onMenuShareAppMessage({
                     title: this.shareTitle, // 分享标题
                     desc: '这些知识我打赌你一个都不知道', // 分享描述
-                    link: basePath, // 分享链接
+                    link: basePath + '?' + activeTopicId, // 分享链接
                     imgUrl: 'http://test.fe.ptdev.cn/happyfri/pthome.jpeg', // 分享图标
                     type: 'link', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空

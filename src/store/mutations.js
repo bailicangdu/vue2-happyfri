@@ -9,9 +9,18 @@ export default {
 	[GET_DATA](state, payload) {
 		if (payload.res.httpStatusCode == 200) {
 			state.itemDetail = payload.res.topiclist;
-			state.level = payload.res.topiclist[0].active_topic_phase
-			state.active_id = payload.res.topiclist[0].active_id;
-			state.active_topic_id = payload.res.topiclist[0].active_topic_id;
+			if (payload.res.topiclist.length > 0) {
+				let nowTime = new Date().getTime() / 1000;
+				if (nowTime > Number(payload.res.topiclist[0].active_end_time)) {
+					alert('活动已经结束')
+				} else if (nowTime < Number(payload.res.topiclist[0].active_start_time)) {
+					alert('活动尚未开始')
+				} else {
+					state.level = payload.res.topiclist[0].active_topic_phase
+					state.active_id = payload.res.topiclist[0].active_id;
+					state.active_topic_id = payload.res.topiclist[0].active_topic_id;
+				}
+			}
 		}
 	},
 
