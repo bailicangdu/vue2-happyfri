@@ -6,7 +6,7 @@
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
-    		<router-link to="/item" class="start button_style"></router-link>
+    		<span class="start button_style" @click='nextpage'></span>
     	</div>
     	<div v-if="fatherComponent == 'item'" >
     		<div class="item_back item_container_style">
@@ -46,6 +46,17 @@ export default {
   		itemDetail: state => state.itemDetail
 	}),
   	methods: {
+  		nextpage: function (){
+  			if (this.$store.state.activeCodeState == 200) {
+  				this.$router.push('item')
+  			}else if (this.$store.state.activeCodeState == 300) {
+  				alert('活动尚未开始')
+  			}else if (this.$store.state.activeCodeState == 301) {
+  				alert('活动已经结束')
+  			}else if (this.$store.state.activeCodeState == 500) {
+  				alert('活动不存在')
+  			}
+  		},
   		nextItem: function (){
   			if (this.choosedNum !== null) {
 	  			this.choosedNum = null;

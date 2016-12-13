@@ -19,6 +19,7 @@ const state = {
 	level: '',
 	itemNum: 1,
 	allTime: 0,
+	activeCodeState: 0,
 	nowActive_id: nowActive,
 	user_id: '',
 	active_id: '',

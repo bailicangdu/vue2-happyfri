@@ -8,19 +8,22 @@ const GET_USER_INFORM = 'GET_USER_INFORM'
 export default {
 	[GET_DATA](state, payload) {
 		if (payload.res.httpStatusCode == 200) {
+			state.activeCodeState = 200;
 			state.itemDetail = payload.res.topiclist;
 			if (payload.res.topiclist.length > 0) {
-				let nowTime = new Date().getTime() / 1000;
-				if (nowTime > Number(payload.res.topiclist[0].active_end_time)) {
-					alert('活动已经结束')
-				} else if (nowTime < Number(payload.res.topiclist[0].active_start_time)) {
-					alert('活动尚未开始')
-				} else {
-					state.level = payload.res.topiclist[0].active_topic_phase
-					state.active_id = payload.res.topiclist[0].active_id;
-					state.active_topic_id = payload.res.topiclist[0].active_topic_id;
-				}
+				state.level = payload.res.topiclist[0].active_topic_phase
+				state.active_id = payload.res.topiclist[0].active_id;
+				state.active_topic_id = payload.res.topiclist[0].active_topic_id;
 			}
+		} else if (payload.res.httpStatusCode == 500) {
+			state.activeCodeState = 500;
+			alert('活动不存在')
+		} else if (payload.res.httpStatusCode == 300) {
+			state.activeCodeState = 300;
+			alert('活动尚未开始')
+		} else if (payload.res.httpStatusCode == 301) {
+			state.activeCodeState = 301;
+			alert('活动已经结束')
 		}
 	},
 
