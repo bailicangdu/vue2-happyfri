@@ -66,7 +66,7 @@ export default {
                 wx.onMenuShareTimeline({
                     title: this.shareTitle, // 分享标题
                     link: basePath + '?' + activeTopicId, // 分享链接
-                    imgUrl: 'http://test.fe.ptdev.cn/happyfri/pthome.jpeg', // 分享图标
+                    imgUrl:basePath + 'pthome.jpeg', // 分享图标
                     success: () => {
                         this.showHide = false
                     },
@@ -79,7 +79,7 @@ export default {
                     title: this.shareTitle, // 分享标题
                     desc: '这些知识我打赌你一个都不知道', // 分享描述
                     link: basePath + '?' + activeTopicId, // 分享链接
-                    imgUrl: 'http://test.fe.ptdev.cn/happyfri/pthome.jpeg', // 分享图标
+                    imgUrl:basePath + 'pthome.jpeg', // 分享图标
                     type: 'link', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                     success: () => {
