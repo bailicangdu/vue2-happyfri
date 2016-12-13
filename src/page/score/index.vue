@@ -28,7 +28,7 @@ export default {
             score: 0,
             scoreTips:'',
             shareTitle:'',
-            scoreTipsArr:['可怜智商就和一坨屎一样！','智商达到正常人的水准！','不要嘚瑟还有进步的空间！','智商离爆表只差一步了！','智商爆表了！'],
+            scoreTipsArr:['你说，是不是把知识都还给小学老师了？','还不错，但还需要继续加油哦！','不要嘚瑟还有进步的空间！','智商离爆表只差一步了！','你也太聪明啦，葡萄之家欢迎你！'],
         }
     },
     methods: {
@@ -99,17 +99,7 @@ export default {
             this.score = Number(res.score);
             this.getScoreTip();
             this.setShareTitle();
-        }).
-        catch(() => {
-            this.getScoreTip();
-            this.setShareTitle();
         })
-
-        // this.score = Math.round(Math.random()*100)
-
-        // this.getScoreTip();
-        // this.setShareTitle();
-        
     }
 }
 
