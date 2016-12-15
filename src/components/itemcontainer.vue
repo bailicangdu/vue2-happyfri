@@ -20,8 +20,8 @@
     				</ul>
     			</div>
     		</div>
-    		<button class="next_item button_style" @click="nextItem" v-if="itemNum < itemDetail.length"></button>
-    		<button class="submit_item button_style" v-else @click="submitAnswer"></button>
+    		<span class="next_item button_style" @click="nextItem" v-if="itemNum < itemDetail.length"></span>
+    		<span class="submit_item button_style" v-else @click="submitAnswer"></span>
     	</div>
   	</section>
 </template>
@@ -47,6 +47,7 @@ export default {
 	}),
   	methods: {
   		nextpage: function (){
+  			this.$router.push('item')  ///////还分身乏术地方开始发售
   			if (this.$store.state.activeCodeState == 200) {
   				this.$router.push('item')
   			}else if (this.$store.state.activeCodeState == 300) {
