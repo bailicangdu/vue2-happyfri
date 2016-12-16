@@ -100,6 +100,7 @@ export default {
             this.getScoreTip();
             this.setShareTitle();
         })
+        document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)';
     }
 }
 

@@ -30,7 +30,7 @@ const state = {
 		"topic_id": 20,
 		"active_topic_id": 4,
 		"type": "ONE",
-		"topic_name": "是分身乏术分",
+		"topic_name": "1",
 		"active_id": 1,
 		"active_title": "欢乐星期五标题",
 		"active_topic_phase": "第一周",
@@ -39,54 +39,54 @@ const state = {
 		"topic_answer": [{
 			"topic_answer_id": 66,
 			"topic_id": 20,
-			"answer_name": "说的发",
+			"answer_name": "2",
 			"is_standard_answer": 0
 		}, {
 			"topic_answer_id": 67,
 			"topic_id": 20,
-			"answer_name": "说的发",
+			"answer_name": "3",
 			"is_standard_answer": 0
 		}, {
 			"topic_answer_id": 68,
 			"topic_id": 20,
-			"answer_name": "说的发生",
+			"answer_name": "4",
 			"is_standard_answer": 0
 		}, {
 			"topic_answer_id": 69,
 			"topic_id": 20,
-			"answer_name": "说的发",
+			"answer_name": "5",
 			"is_standard_answer": 1
 		}]
 	}, {
-		"topic_id": 20,
+		"topic_id": 21,
 		"active_topic_id": 4,
-		"type": "ONE",
-		"topic_name": "是分身乏术分身乏术分似懂非懂所发生的发生分身乏术分是非得失分身乏术说",
+		"type": "MORE",
+		"topic_name": "2",
 		"active_id": 1,
 		"active_title": "欢乐星期五标题",
 		"active_topic_phase": "第一周",
 		"active_start_time": "1479139200",
 		"active_end_time": "1482163200",
 		"topic_answer": [{
-			"topic_answer_id": 66,
-			"topic_id": 20,
-			"answer_name": "说的发生的发生的分身乏术的发生的的发分服",
-			"is_standard_answer": 0
-		}, {
-			"topic_answer_id": 67,
-			"topic_id": 20,
-			"answer_name": "说的发生的发生的分身乏术的发生的术分服",
-			"is_standard_answer": 0
-		}, {
-			"topic_answer_id": 68,
-			"topic_id": 20,
-			"answer_name": "说的发生的发生的分身乏术的发生身乏术分服",
-			"is_standard_answer": 0
-		}, {
-			"topic_answer_id": 69,
-			"topic_id": 20,
-			"answer_name": "说的发生的发生的分失分身乏术分服",
+			"topic_answer_id": 70,
+			"topic_id": 21,
+			"answer_name": "答案A",
 			"is_standard_answer": 1
+		}, {
+			"topic_answer_id": 71,
+			"topic_id": 21,
+			"answer_name": "答案B",
+			"is_standard_answer": 0
+		}, {
+			"topic_answer_id": 72,
+			"topic_id": 21,
+			"answer_name": "答案C",
+			"is_standard_answer": 0
+		}, {
+			"topic_answer_id": 73,
+			"topic_id": 21,
+			"answer_name": "答案D",
+			"is_standard_answer": 0
 		}]
 	}],
 	answerid: {}

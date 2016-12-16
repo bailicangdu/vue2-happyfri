@@ -32,7 +32,6 @@ if (!(/users_id=/gi.test(url))) {
 }
 
 let jssdkUrl = url.split('#')[0]
-
 ajax('GET', 'http://wxinterface.putaoevent.com/jssdk?wx_account_id=' + weixinOrder + '&callback_url=' + basePath + '&url=' + jssdkUrl).
 then((res) => {
 	wx.config({

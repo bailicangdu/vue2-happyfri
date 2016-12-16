@@ -47,7 +47,7 @@ export default {
 	}),
   	methods: {
   		nextpage: function (){
-  			this.$router.push('item')  ///////还分身乏术地方开始发售
+  			this.$router.push('item')
   			if (this.$store.state.activeCodeState == 200) {
   				this.$router.push('item')
   			}else if (this.$store.state.activeCodeState == 300) {
@@ -101,6 +101,7 @@ export default {
 			this.$store.dispatch('getUserInform');
 		}
 		this.preLoadImg(urlArr)
+		document.body.style.backgroundImage = 'url(./static/img/1-1.jpg)';
 	}
 }
 </script>
