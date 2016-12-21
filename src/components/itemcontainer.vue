@@ -2,11 +2,11 @@
   	<section>
     	<header class="top_tips">
     		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
-    		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{this.$store.state.TransformNum[itemNum - 1]}}</span>
+    		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
-    		<span class="start button_style" @click='nextpage'></span>
+    		<router-link to="item" class="start button_style" ></router-link>
     	</div>
     	<div v-if="fatherComponent == 'item'" >
     		<div class="item_back item_container_style">
@@ -28,8 +28,6 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import ajax from '../config/ajax'
-import {basePath, targetUrl, urlArr} from '../config/config'
 export default {
 	name: 'itemcontainer',
 	data() {
@@ -46,18 +44,6 @@ export default {
   		itemDetail: state => state.itemDetail
 	}),
   	methods: {
-  		nextpage: function (){
-  			this.$router.push('item')
-  			if (this.$store.state.activeCodeState == 200) {
-  				this.$router.push('item')
-  			}else if (this.$store.state.activeCodeState == 300) {
-  				alert('活动尚未开始')
-  			}else if (this.$store.state.activeCodeState == 301) {
-  				alert('活动已经结束')
-  			}else if (this.$store.state.activeCodeState == 500) {
-  				alert('活动不存在')
-  			}
-  		},
   		nextItem: function (){
   			if (this.choosedNum !== null) {
 	  			this.choosedNum = null;
@@ -87,20 +73,12 @@ export default {
   				alert('您还没有选择答案哦')
   			}
 	  	},
-	  	preLoadImg: function (urlArr){
-			for (let i = 0; i < urlArr.length; i++) {
-	  			let img = new Image(); 
-				img.src = targetUrl + urlArr[i]; 
-			}
-	  	}
 	},
 	created(){
 		this.$store.dispatch('initializeData');
 		if(this.$store.state.itemDetail.length == 0){
 			this.$store.dispatch('getData');
-			this.$store.dispatch('getUserInform');
 		}
-		this.preLoadImg(urlArr)
 		document.body.style.backgroundImage = 'url(./static/img/1-1.jpg)';
 	}
 }

@@ -17,9 +17,6 @@
 
 <script>
 
-import ajax from '../../config/ajax'
-import {basePath, targetUrl, activeTopicId} from '../../config/config'
-
 export default {
 	name: 'score',
     data(){
@@ -38,68 +35,28 @@ export default {
         getScoreTip: function (){
             if(this.score <= 50) {
                 this.scoreTips = this.scoreTipsArr[0];
-                this.shareTitle = '我拿了' + this.score + '分，智商被碾压，来挑战我吧！';
                 return
             }
             if(this.score <= 70) {
                 this.scoreTips = this.scoreTipsArr[1];
-                this.shareTitle = '我拿了' + this.score + '分，离完美只差一步，来挑战我吧！';
                 return
             }
             if(this.score <= 80) {
                 this.scoreTips = this.scoreTipsArr[2];
-                this.shareTitle = '我拿了' + this.score + '分，离完美只差一步，来挑战我吧！';
                 return
             }
             if(this.score <= 90) {
                 this.scoreTips = this.scoreTipsArr[3];
-                this.shareTitle = '我拿了' + this.score + '分，离完美只差一步，来挑战我吧！';
                 return
             }
             if(this.score <= 100) {
                 this.scoreTips = this.scoreTipsArr[4];
-                this.shareTitle = '我拿了' + this.score + '分，智商爆表，来挑战我吧！';
             }
-        },
-        setShareTitle: function (){
-            wx.ready(() => {
-                wx.onMenuShareTimeline({
-                    title: this.shareTitle, // 分享标题
-                    link: basePath + '?' + activeTopicId, // 分享链接
-                    imgUrl:basePath + 'pthome.jpeg', // 分享图标
-                    success: () => {
-                        this.showHide = false
-                    },
-                    cancel: () => {
-                        this.showHide = false
-                    }
-                });
-
-                wx.onMenuShareAppMessage({
-                    title: this.shareTitle, // 分享标题
-                    desc: '这些知识我打赌你一个都不知道', // 分享描述
-                    link: basePath + '?' + activeTopicId, // 分享链接
-                    imgUrl:basePath + 'pthome.jpeg', // 分享图标
-                    type: 'link', // 分享类型,music、video或link，不填默认为link
-                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                    success: () => {
-                        this.showHide = false
-                    },
-                    cancel: () => {
-                        this.showHide = false
-                    }
-                });
-            })
         }
     },
 	created(){
-        let strJson = JSON.stringify(this.$store.state.answerid)
-        ajax('GET', 'http://operating-activities.putao.com/service/record/add?user_id=' + this.$store.state.user_id + '&active_id=' + this.$store.state.active_id + '&active_topic_id=' + this.$store.state.active_topic_id + '&record=11&time='+ this.$store.state.allTime+'&answer='+strJson).
-        then((res) => {
-            this.score = Number(res.score);
-            this.getScoreTip();
-            this.setShareTitle();
-        })
+        this.score = 20;
+        this.getScoreTip();
         document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)';
     }
 }
@@ -159,7 +116,7 @@ export default {
             color: #664718;
             font-size: 0.475rem;
             font-family: 'Microsoft YaHei';
-            width: 6rem;
+            width: 7rem;
             font-weight: 500;
         }
         .code_img{
