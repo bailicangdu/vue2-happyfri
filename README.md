@@ -1,6 +1,6 @@
 # happyfri
 
-一个简单的vue2入门项目，利用vue全家桶在初期搭建一个项目 
+一个简单的vue2入门项目，熟悉如何利用vue + vue-router + vuex 在初期搭建一个项目 
 
 ## 项目运行
 ``` bash
