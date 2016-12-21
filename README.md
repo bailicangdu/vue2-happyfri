@@ -2,7 +2,7 @@
 
 一个简单的vue2入门项目，熟悉如何利用vue + vue-router + vuex 在初期搭建一个项目 
 
-![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-index.png)
+![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-index.png =200*300)
 ![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-item.png)
 ![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-score.png)
 
