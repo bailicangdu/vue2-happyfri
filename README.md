@@ -1,9 +1,8 @@
 # happyfri
 
-> A Vue2.js project
+一个简单的vue2入门项目，利用vue全家桶在初期搭建一个项目 
 
-## Build Setup
-
+## 项目运行
 ``` bash
 # 安装依赖
 npm install
@@ -15,5 +14,4 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
