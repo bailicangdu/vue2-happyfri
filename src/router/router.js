@@ -5,12 +5,12 @@ export default [{
     component: App,
     children: [{
         path: '',
-        component: r => require.ensure([], () => r(require('../page/home/index')), 'home')
+        component: r => require.ensure([], () => r(require('../page/home/')), 'home')
     }, {
         path: '/item',
-        component: r => require.ensure([], () => r(require('../page/item/index')), 'item')
+        component: r => require.ensure([], () => r(require('../page/item/')), 'item')
     }, {
         path: '/score',
-        component: r => require.ensure([], () => r(require('../page/score/index')), 'score')
+        component: r => require.ensure([], () => r(require('../page/score/')), 'score')
     }]
 }]
