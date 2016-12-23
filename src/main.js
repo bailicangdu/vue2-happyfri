@@ -26,6 +26,7 @@ fetch('get', '/v2/index_entry', {
 	console.log(error)
 })
 
+
 // var obj = {
 // 	mobile: '13681711254', 
 // 	scene: 'login', 
