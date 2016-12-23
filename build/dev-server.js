@@ -12,9 +12,8 @@ var webpackConfig = require('./webpack.dev.conf')
 var port = process.env.PORT || config.dev.port
     // Define HTTP proxies to your custom API backend
     // https://github.com/chimurai/http-proxy-middleware
-var proxyTable = config.dev.proxyTable
 
-var app = express()
+var server = express()
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -36,32 +35,39 @@ compiler.plugin('compilation', function(compilation) {
     })
 })
 
-// proxy api requests
-Object.keys(proxyTable).forEach(function(context) {
-    var options = proxyTable[context]
-    if (typeof options === 'string') {
-        options = {
-            target: options
-        }
-    }
-    app.use(proxyMiddleware(context, options))
-})
+var context = config.dev.context
+var proxypath = config.dev.proxypath
+
+var options = {
+    target: proxypath,
+    changeOrigin: true,
+}
+if (context.length) {
+    server.use(proxyMiddleware(context, options))
+}
+
+// server.use(proxyMiddleware('/*/*', {
+//     target: 'https://mainsite-restapi.ele.me',
+//     changeOrigin: true,
+//     secure: false,
+// }))
+
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+server.use(require('connect-history-api-fallback')())
 
 // serve webpack bundle output
-app.use(devMiddleware)
+server.use(devMiddleware)
 
 // enable hot-reload and state-preserving
 // compilation error display
-app.use(hotMiddleware)
+server.use(hotMiddleware)
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+server.use(staticPath, express.static('./static'))
 
-module.exports = app.listen(port, function(err) {
+module.exports = server.listen(port, function(err) {
     if (err) {
         console.log(err)
         return
