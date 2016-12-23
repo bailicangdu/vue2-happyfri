@@ -21,7 +21,10 @@ module.exports = {
         port: 8088,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        proxyTable: {},
+        context: [ //代理路径
+          
+        ],
+        proxypath: 'https://mainsite-restapi.ele.me',
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README
         // (https://github.com/webpack/css-loader#sourcemaps)
