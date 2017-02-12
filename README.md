@@ -1,6 +1,6 @@
 # happyfri
 
-一个简单的vue2入门项目，熟悉如何利用vue + vue-router + vuex 在初期搭建一个项目 
+一个简易的vue2项目，熟悉如何将 vue + vue-router + vuex 相互配合，在初期搭建一个项目 
 
 
 ## 项目运行
