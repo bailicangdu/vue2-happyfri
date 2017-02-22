@@ -31,7 +31,7 @@ npm run build
    
 ### 移动端扫描下方二维码
 
-![](https://github.com/bailicangdu/vue2-elm/blob/master/src/images/ewm.png)
+![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png)
 
 
 
