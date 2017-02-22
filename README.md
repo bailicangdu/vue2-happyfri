@@ -23,9 +23,16 @@ npm run dev
 npm run build
 ```
 
-<img src="https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-index.png" width="280" height="500"/>
-<img src="https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-item.png" width="280" height="500"/>
-<img src="https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/project-score.png" width="280" height="500"/>
+
+# 效果演示
+
+
+[demo地址](http://test.fe.ptdev.cn/happyfri/)（请用chrome手机模式预览）
+   
+### 移动端扫描下方二维码
+
+![](https://github.com/bailicangdu/vue2-elm/blob/master/src/images/ewm.png)
+
 
 
 ##### 如果对你有帮助，请star一下吧😊
