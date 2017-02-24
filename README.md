@@ -11,7 +11,7 @@
 5、但是这个项目过于简单，感觉才刚开始就写完了，vue2中很多功能都没有用到，所以打算用vue2写一个复杂的项目，尽可能用到vue的所有知识。目前项目已经接近完成。[地址在这里](https://github.com/bailicangdu/vue2-elm)
 
 
-## 项目运行
+## 项目运行（nodejs 6.0+）
 ``` bash
 # 安装依赖
 npm install
