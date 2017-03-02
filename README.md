@@ -16,7 +16,7 @@
 
 >  开发环境 macOS 10.12.3  Chrome 55
 
->  但是这个项目过于简单，感觉才刚开始就写完了，vue2中很多功能都没有用到，所以打算用vue2写一个复杂的项目，尽可能用到vue的所有知识。目前项目已经接近完成。[地址在这里](https://github.com/bailicangdu/vue2-elm)
+>  这个项目主要用于 vue2 + vuex 的入门练习，另外推荐一个vue2写的复杂的项目，尽可能用到vue的所有知识。目前项目已经完成。[地址在这里](https://github.com/bailicangdu/vue2-elm)
 
 
 ## 项目运行（nodejs 6.0+）
