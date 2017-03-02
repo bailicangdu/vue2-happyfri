@@ -183,6 +183,3 @@ new Vue({
 
 ![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png)
 
-
-
-##### 如果对你有帮助，请star一下吧😊
