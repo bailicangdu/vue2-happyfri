@@ -2,8 +2,6 @@
 
 >  非常简单的一个vue2 + vuex的项目，整个流程一目了然，麻雀虽小，五脏俱全，适合作为入门练习。
 
->  vuex的存在对于vue来说简直如同灵魂一般，让vue在组件之间的通信非常方便。
-
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
 >  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
@@ -17,6 +15,9 @@
 
 ## 项目运行（nodejs 6.0+）
 ``` bash
+# 克隆到本地
+git clone https://github.com/bailicangdu/vue2-happyfri
+
 # 安装依赖
 npm install
 
