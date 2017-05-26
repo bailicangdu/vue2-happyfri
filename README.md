@@ -16,7 +16,7 @@
 ## 项目运行（nodejs 6.0+）
 ``` bash
 # 克隆到本地
-git clone https://github.com/bailicangdu/vue2-happyfri
+git clone https://github.com/bailicangdu/vue2-happyfri.git
 
 # 安装依赖
 npm install
