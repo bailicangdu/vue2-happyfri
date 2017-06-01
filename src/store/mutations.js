@@ -25,9 +25,7 @@ export default {
 	},
 
 	[REMBER_TIME](state) {
-		state.timer = setInterval(() => {
-			state.allTime++;
-		}, 1000)
+		state.allTime++;
 	},
 
 	[INITIALIZE_DATA](state) {

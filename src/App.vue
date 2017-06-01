@@ -1,17 +1,14 @@
-<template>
-	<div>
-    	<router-view></router-view>
-    </div>
+<template lang="pug">
+div
+	router-view
 </template>
 
 <script>
+export default {
 
-  	export default {
-    
-  	}
-
+}
 </script>
 
-<style lang="less">
-  	
+<style>
+
 </style>
