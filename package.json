@@ -1,8 +1,8 @@
 {
-  "name": "elm",
+  "name": "happyfri",
   "version": "1.0.0",
-  "description": "vue2-elm",
-  "author": "maguohua <1264889788@qq.com>",
+  "description": "vue2-happyfri",
+  "author": "cangdu <1264889788@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
