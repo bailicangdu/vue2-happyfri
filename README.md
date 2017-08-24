@@ -18,6 +18,7 @@
 # 克隆到本地
 git clone https://github.com/bailicangdu/vue2-happyfri.git
 
+# 进入该文件夹
 cd vue2-happyfri
 
 # 安装依赖
