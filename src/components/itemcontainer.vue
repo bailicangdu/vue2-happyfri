@@ -10,7 +10,7 @@
     	</div>
     	<div v-if="fatherComponent == 'item'" >
     		<div class="item_back item_container_style">
-    			<div class="item_list_container" v-if="this.$store.state.itemDetail.length > 0">
+    			<div class="item_list_container" v-if="itemDetail.length > 0">
     				<header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
     				<ul>
     					<li  v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" class="item_list">
@@ -32,26 +32,33 @@ export default {
 	name: 'itemcontainer',
 	data() {
 		return {
-			itemId: null,
-			choosedNum: null,
-			choosedId:null
+			itemId: null, //题目ID
+			choosedNum: null, //选中答案索引
+			choosedId:null //选中答案id
 		}
 	},
   	props:['fatherComponent'],
-  	computed: mapState({
-	  	itemNum: state => state.itemNum,
-  		level: state => state.level,
-  		itemDetail: state => state.itemDetail
-	}),
+  	computed: mapState([
+	  	'itemNum', //第几题
+  		'level', //第几周
+  		'itemDetail', //题目详情
+  		'timer', //计时器
+	]),
   	methods: {
-  		nextItem: function (){
+  		...mapActions([
+  			'addNum', 'initializeData',
+  		]),
+  		//点击下一题
+  		nextItem(){
   			if (this.choosedNum !== null) {
 	  			this.choosedNum = null;
-	  			this.$store.dispatch('addNum',this.choosedId)
+	  			//保存答案, 题目索引加一，跳到下一题
+	  			this.addNum(this.choosedId)
   			}else{
   				alert('您还没有选择答案哦')
   			}
   		},
+  		//索引0-3对应答案A-B
 	  	chooseType: type => {
 	  		switch(type){
 	  			case 0: return 'A';
@@ -60,14 +67,16 @@ export default {
 	  			case 3: return 'D';
 	  		}
 	  	},
-	  	choosed: function (type,id){
+	  	//选中的答案信息
+	  	choosed(type,id){
 	  		this.choosedNum = type;
 	  		this.choosedId = id;
 	  	},
-	  	submitAnswer: function (){
+	  	//到达最后一题，交卷，请空定时器，跳转分数页面
+	  	submitAnswer(){
 	  		if (this.choosedNum !== null) {
-	  			this.$store.dispatch('addNum',this.choosedId)
-	  			clearInterval(this.$store.state.timer)
+	  			this.addNum(this.choosedId)
+	  			clearInterval(this.timer)
 	  			this.$router.push('score')
   			}else{
   				alert('您还没有选择答案哦')
@@ -75,10 +84,8 @@ export default {
 	  	},
 	},
 	created(){
-		this.$store.dispatch('initializeData');
-		if(this.$store.state.itemDetail.length == 0){
-			this.$store.dispatch('getData');
-		}
+		//初始化信息
+		this.initializeData();
 		document.body.style.backgroundImage = 'url(./static/img/1-1.jpg)';
 	}
 }

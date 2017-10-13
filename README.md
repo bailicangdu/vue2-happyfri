@@ -18,6 +18,9 @@
 # 克隆到本地
 git clone https://github.com/bailicangdu/vue2-happyfri.git
 
+# 进入文件夹
+cd vue2-happyfri
+
 # 安装依赖
 npm install
 
@@ -33,12 +36,10 @@ npm run build
 # 效果演示
 
 
-[demo地址](http://test.fe.ptdev.cn/happyfri/)（请用chrome手机模式预览）
+[demo地址](http://cangdu.org/happyfri/)（请用chrome手机模式预览）
    
 ### 移动端扫描下方二维码
-
-![](https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png)
-
+<img src='https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png' width="300" height="300" />
 
 
 
@@ -71,25 +72,15 @@ import ajax from '../config/ajax'
 
 export default {
 	addNum({ commit, state }, id) {
-		commit('REMBER_ANSWER', { id })
+		//点击下一题，记录答案id，判断是否是最后一题，如果不是则跳转下一题
+		commit('REMBER_ANSWER', id);
 		if (state.itemNum < state.itemDetail.length) {
-			commit('ADD_ITEMNUM', {
-				num: 1
-			})
+			commit('ADD_ITEMNUM', 1);
 		}
 	},
-
-	getData({ commit, state }) {
-		ajax('GET', 'http://operating-activities.putao.com/happyfriday?active_topic_id=4').
-		then(res => {
-			commit('GET_DATA', {
-				res
-			})
-		})
-	},
-
+	//初始化信息
 	initializeData({ commit }) {
-		commit('INITIALIZE_DATA')
+		commit('INITIALIZE_DATA');
 	}
 }
 
@@ -98,38 +89,30 @@ export default {
 
 ## mutations
 ```js
-const GET_DATA = 'GET_DATA'
 const ADD_ITEMNUM = 'ADD_ITEMNUM'
 const REMBER_ANSWER = 'REMBER_ANSWER'
 const REMBER_TIME = 'REMBER_TIME'
 const INITIALIZE_DATA = 'INITIALIZE_DATA'
-const GET_USER_INFORM = 'GET_USER_INFORM'
-
 export default {
-	[GET_DATA](state, payload) {
-		if (payload.res.httpStatusCode == 200) {
-			state.itemDetail = payload.res.topiclist;
-		}
-	},
-
-	[GET_USER_INFORM](state, payload) {
-		state.user_id = payload.res.users_id;
-	},
-
+	//点击进入下一题
 	[ADD_ITEMNUM](state, payload) {
 		state.itemNum += payload.num;
 	},
-
+	//记录答案
 	[REMBER_ANSWER](state, payload) {
 		state.answerid[state.itemNum] = payload.id;
 	},
-
+	/*
+	记录做题时间
+	 */
 	[REMBER_TIME](state) {
 		state.timer = setInterval(() => {
 			state.allTime++;
 		}, 1000)
 	},
-
+	/*
+	初始化信息，
+	 */
 	[INITIALIZE_DATA](state) {
 		state.itemNum = 1;
 		state.allTime = 0;
