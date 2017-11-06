@@ -1,11 +1,13 @@
 <template>
   	<section>
     	<header class="top_tips">
+			<!-- 根据fatherComponent的值类决定显示与否 -->
     		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
     		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
+			<!-- 开始按钮 跳转到 到item路由处-->
     		<router-link to="item" class="start button_style" ></router-link>
     	</div>
     	<div v-if="fatherComponent == 'item'" >
@@ -13,13 +15,14 @@
     			<div class="item_list_container" v-if="itemDetail.length > 0">
     				<header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
     				<ul>
-    					<li  v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" class="item_list">
+    					<li v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" :key="item.id" class="item_list">
     						<span class="option_style" v-bind:class="{'has_choosed':choosedNum==index}">{{chooseType(index)}}</span>
     						<span class="option_detail">{{item.answer_name}}</span>
     					</li>
     				</ul>
     			</div>
     		</div>
+			<!-- 下一题按钮 -->
     		<span class="next_item button_style" @click="nextItem" v-if="itemNum < itemDetail.length"></span>
     		<span class="submit_item button_style" v-else @click="submitAnswer"></span>
     	</div>
@@ -37,6 +40,7 @@ export default {
 			choosedId:null //选中答案id
 		}
 	},
+	// 最好对props中的数据进行条件限制
   	props:['fatherComponent'],
   	computed: mapState([
 	  	'itemNum', //第几题
