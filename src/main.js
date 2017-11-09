@@ -1,18 +1,19 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import routes from './router/router'
-import store from './store/'
+import App from './App'
+import router from './router'
+import store from './store'
 // 无效引入
 import ajax from './config/ajax'
 import './style/common'
 import './config/rem'
 
-Vue.use(VueRouter)
-const router = new VueRouter({
-  routes
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  store,
+  router,
+  template: '<App/>',
+  components: { App }
 })
 
-new Vue({
-  router,
-  store,
-}).$mount('#app')
