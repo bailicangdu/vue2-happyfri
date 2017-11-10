@@ -32,7 +32,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-	name: 'itemcontainer',
+	name: 'ContainerItem',
 	data() {
 		return {
 			itemId: null, //题目ID
@@ -102,7 +102,7 @@ export default {
 		width: 3.25rem;
 		top: -1.3rem;
 		right: 1.6rem;
-		background: url(../images/WechatIMG2.png) no-repeat;
+		background: url(../assets/WechatIMG2.png) no-repeat;
 		background-size: 100% 100%;
 		z-index: 10;
 		.num_tip{
@@ -127,12 +127,12 @@ export default {
 		left: 1rem;
 	}
 	.home_logo{
-		background-image: url(../images/1-2.png);
+		background-image: url(../assets/1-2.png);
 		background-size: 13.142rem 100%;
 		background-position: right center;
 	}
 	.item_back{
-		background-image: url(../images/2-1.png);
+		background-image: url(../assets/2-1.png);
 		background-size: 100% 100%;
 	}
 	.button_style{
@@ -147,13 +147,13 @@ export default {
         background-repeat: no-repeat;
 	}
 	.start{
-        background-image: url(../images/1-4.png);
+        background-image: url(../assets/1-4.png);
     }
     .next_item{
-    	background-image: url(../images/2-2.png);
+    	background-image: url(../assets/2-2.png);
     }
     .submit_item{
-    	background-image: url(../images/3-1.png);
+    	background-image: url(../assets/3-1.png);
     }
     .item_list_container{
     	position: absolute;

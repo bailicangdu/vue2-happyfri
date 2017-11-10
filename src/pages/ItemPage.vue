@@ -1,20 +1,20 @@
 <template>
   	<div>
-    	<itemcontainer father-component="item"></itemcontainer>
+    	<container-item father-component="item"></container-item>
   	</div>
 </template>
 
 <script>
-import itemcontainer from '../../components/itemcontainer'
+import ContainerItem from 'components/ContainerItem'
 
 export default {
 	name: 'item',
   	components: {
-   		itemcontainer
+   		ContainerItem
   	},
   	created(){
 	  // 进入题目页面，开始计时
-	  // commit 用于修改数据  
+	  // commit 用于修改数据
 	  this.$store.commit('REMBER_TIME');
   	}
 }
@@ -22,6 +22,6 @@ export default {
 </script>
 
 <style lang="less">
-    
+
 
 </style>

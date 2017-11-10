@@ -2,15 +2,15 @@
  * @Author: mrjzhang
  * @Date: 2017-11-09 21:22:56
  * @Last Modified by: mrjzhang
- * @Last Modified time: 2017-11-09 21:26:20
+ * @Last Modified time: 2017-11-10 11:47:13
  */
 import Vue from 'vue'
 import Router from 'vue-router'
 
 // router module
 import App from '../App'
-import Item from '../page/item'
-import Home from '../page/home'
+import Item from '../pages/ItemPage.vue'
+import Home from '../pages/HomePage.vue'
 /**
  *
  * 说明: require.ensure在需要的时候才下载依赖的模块
@@ -40,7 +40,7 @@ export default new Router({
       component: Item
     }, {
       path: '/score',
-      component: r => require.ensure([], () => r(require('../page/score')), 'score')
+      component: r => require.ensure([], () => r(require('../pages/ScorePage.vue')), 'score')
     }]
   }]
 })

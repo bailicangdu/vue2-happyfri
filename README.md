@@ -37,7 +37,7 @@ npm run build
 
 
 [demo地址](http://cangdu.org/happyfri/)（请用chrome手机模式预览）
-   
+
 ### 移动端扫描下方二维码
 <img src='https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png' width="300" height="300" />
 
@@ -52,13 +52,13 @@ export default [{
     component: App,
     children: [{
         path: '',
-        component: r => require.ensure([], () => r(require('../page/home')), 'home')
+        component: r => require.ensure([], () => r(require('../pages/home')), 'home')
     }, {
         path: '/item',
-        component: r => require.ensure([], () => r(require('../page/item')), 'item')
+        component: r => require.ensure([], () => r(require('../pages/item')), 'item')
     }, {
         path: '/score',
-        component: r => require.ensure([], () => r(require('../page/score')), 'score')
+        component: r => require.ensure([], () => r(require('../pages/score')), 'score')
     }]
 }]
 
