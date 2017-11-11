@@ -2,8 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import mutations from './mutations'
-import actions from './action'
-// 无效引入
+import actions from './actions'
 import ajax from '../config/ajax'
 
 

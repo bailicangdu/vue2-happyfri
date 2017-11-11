@@ -1,4 +1,3 @@
-// 无效引入
 import ajax from '../config/ajax'
 
 /**
