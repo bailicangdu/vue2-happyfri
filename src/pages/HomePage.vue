@@ -1,19 +1,20 @@
 <template>
   	<div class="home_container">
-        <itemcontainer father-component="home"></itemcontainer>
+        <!-- 父组件向子组件传送消息 props father-component -->
+        <container-item father-component="home"></container-item>
     </div>
 </template>
 
 <script>
-import itemcontainer from '../../components/itemcontainer'
+import ContainerItem from 'components/ContainerItem'
 
 export default {
 	name: 'home',
   	components: {
-  		itemcontainer
+  		ContainerItem
   	},
     created(){
-        
+
     }
 }
 </script>

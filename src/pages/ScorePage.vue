@@ -1,16 +1,16 @@
 <template>
   	<div>
     	<div class="your_scores_container">
-            <header class="your_scores"><span class="score_num">{{score}}</span><span class="fenshu">分！</span></header>
-            <div class="result_tip">{{scoreTips}}</div>
+          <header class="your_scores"><span class="score_num">{{score}}</span><span class="fenshu">分！</span></header>
+          <div class="result_tip">{{scoreTips}}</div>
         </div>
         <div class="share_button" @click="showCover"></div>
         <div class="share_code">
-            <header class="share_header">关注葡萄之家，获取答案。</header>
-            <img src="../../images/4-4.png" height="212" width="212" class="code_img"> 
+          <header class="share_header">关注葡萄之家，获取答案。</header>
+          <img src="../assets//4-4.png" height="212" width="212" class="code_img">
         </div>
         <div class="share_cover" v-show="showHide" @click="showCover">
-            <img src="../../images/5-2.png" class="share_img">
+            <img src="../assets//5-2.png" class="share_img">
         </div>
   	</div>
 </template>
@@ -32,7 +32,7 @@ export default {
 	created(){
         this.computedScore();
         this.getScoreTip();
-        document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)';
+        // document.body.style.backgroundImage = 'url(../assets/4-1.jpg)';
     },
     methods: {
         //计算分数
@@ -76,13 +76,13 @@ export default {
 
 <style lang="less">
     body{
-        background-image: url(../../images/4-1.jpg);
+        background-image: url('../assets/4-1.jpg');
         padding-top: 1.2rem;
     }
     .your_scores_container{
         width: 9.7rem;
         height: 9.1rem;
-        background: url(../../images/4-2.png) no-repeat;
+        background: url('../assets/4-2.png') no-repeat;
         background-size: 100% 100%;
         margin: 0 auto 0;
         position: relative;
@@ -117,7 +117,7 @@ export default {
         width: 6.025rem;
         height: 2.4rem;
         margin: 0.8rem auto 0;
-        background: url(../../images/4-3.png) no-repeat 0.4rem 0;
+        background: url('../assets//4-3.png') no-repeat 0.4rem 0;
         background-size: 5.825rem 100%;
     }
     .share_code{
@@ -142,7 +142,7 @@ export default {
         right: 0;
         top: 0;
         left: 0;
-        background: url(../../images/5-1.png) no-repeat;
+        background: url('../assets/5-1.png') no-repeat;
         background-size: 100% 100%;
         opacity: 0.92;
     }

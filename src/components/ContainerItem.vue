@@ -1,11 +1,13 @@
 <template>
   	<section>
     	<header class="top_tips">
+			<!-- 根据fatherComponent的值类决定显示与否 -->
     		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
     		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
+			<!-- 开始按钮 跳转到 到item路由处-->
     		<router-link to="item" class="start button_style" ></router-link>
     	</div>
     	<div v-if="fatherComponent == 'item'" >
@@ -13,13 +15,14 @@
     			<div class="item_list_container" v-if="itemDetail.length > 0">
     				<header class="item_title">{{itemDetail[itemNum-1].topic_name}}</header>
     				<ul>
-    					<li  v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" class="item_list">
+    					<li v-for="(item, index) in itemDetail[itemNum-1].topic_answer" @click="choosed(index, item.topic_answer_id)" :key="item.id" class="item_list">
     						<span class="option_style" v-bind:class="{'has_choosed':choosedNum==index}">{{chooseType(index)}}</span>
     						<span class="option_detail">{{item.answer_name}}</span>
     					</li>
     				</ul>
     			</div>
     		</div>
+			<!-- 下一题按钮 -->
     		<span class="next_item button_style" @click="nextItem" v-if="itemNum < itemDetail.length"></span>
     		<span class="submit_item button_style" v-else @click="submitAnswer"></span>
     	</div>
@@ -29,7 +32,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-	name: 'itemcontainer',
+	name: 'ContainerItem',
 	data() {
 		return {
 			itemId: null, //题目ID
@@ -37,6 +40,7 @@ export default {
 			choosedId:null //选中答案id
 		}
 	},
+	// 最好对props中的数据进行条件限制
   	props:['fatherComponent'],
   	computed: mapState([
 	  	'itemNum', //第几题
@@ -86,7 +90,7 @@ export default {
 	created(){
 		//初始化信息
 		this.initializeData();
-		document.body.style.backgroundImage = 'url(./static/img/1-1.jpg)';
+		// document.body.style.backgroundImage = 'url(../assets/1-1.jpg)';
 	}
 }
 </script>
@@ -98,7 +102,7 @@ export default {
 		width: 3.25rem;
 		top: -1.3rem;
 		right: 1.6rem;
-		background: url(../images/WechatIMG2.png) no-repeat;
+		background: url(../assets/WechatIMG2.png) no-repeat;
 		background-size: 100% 100%;
 		z-index: 10;
 		.num_tip{
@@ -121,14 +125,14 @@ export default {
 		position: absolute;
 		top: 4.1rem;
 		left: 1rem;
-	}	
+	}
 	.home_logo{
-		background-image: url(../images/1-2.png);
+		background-image: url(../assets/1-2.png);
 		background-size: 13.142rem 100%;
 		background-position: right center;
 	}
 	.item_back{
-		background-image: url(../images/2-1.png);
+		background-image: url(../assets/2-1.png);
 		background-size: 100% 100%;
 	}
 	.button_style{
@@ -143,13 +147,13 @@ export default {
         background-repeat: no-repeat;
 	}
 	.start{
-        background-image: url(../images/1-4.png);
+        background-image: url(../assets/1-4.png);
     }
     .next_item{
-    	background-image: url(../images/2-2.png);
+    	background-image: url(../assets/2-2.png);
     }
     .submit_item{
-    	background-image: url(../images/3-1.png);
+    	background-image: url(../assets/3-1.png);
     }
     .item_list_container{
     	position: absolute;
