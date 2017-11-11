@@ -90,7 +90,7 @@ export default {
 	created(){
 		//初始化信息
 		this.initializeData();
-		document.body.style.backgroundImage = 'url(./static/img/1-1.jpg)';
+		// document.body.style.backgroundImage = 'url(../assets/1-1.jpg)';
 	}
 }
 </script>

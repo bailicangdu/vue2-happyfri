@@ -32,7 +32,7 @@ export default {
 	created(){
         this.computedScore();
         this.getScoreTip();
-        document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)';
+        // document.body.style.backgroundImage = 'url(../assets/4-1.jpg)';
     },
     methods: {
         //计算分数
