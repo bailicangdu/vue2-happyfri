@@ -21,7 +21,7 @@ export default (type='GET', url='', data={}, async=true) => {
 			requestObj.send();
 		}else if (type == 'POST') {
 			requestObj.open(type, url, async);
-			requestObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			requestObj.setRequestHeader("Content-type", "application/json");
 			requestObj.send(JSON.stringify(data));
 		}else {
 			reject('error type');
