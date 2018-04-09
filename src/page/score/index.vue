@@ -76,7 +76,6 @@ export default {
 
 <style lang="less">
     body{
-        background-image: url(../../images/4-1.jpg);
         padding-top: 1.2rem;
     }
     .your_scores_container{
