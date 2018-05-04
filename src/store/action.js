@@ -11,5 +11,11 @@ export default {
 	//初始化信息
 	initializeData({ commit }) {
 		commit('INITIALIZE_DATA');
-	}
+	},
+    rememberTime({ commit, state }){
+        var timerId = setInterval(() => {
+            commit('REMBER_TIME');
+        }, 1000);
+        commit('SAVE_INTERVAL', timerId);
+    }
 }
