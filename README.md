@@ -22,7 +22,7 @@ git clone https://github.com/bailicangdu/vue2-happyfri.git
 cd vue2-happyfri
 
 # 安装依赖
-npm install
+npm install 或 yarn(推荐)
 
 # 开启本地服务器localhost:8088
 npm run dev
