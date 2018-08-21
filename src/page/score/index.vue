@@ -49,25 +49,8 @@ export default {
         },
         //根据分数显示提示
         getScoreTip: function (){
-            if(this.score <= 20) {
-                this.scoreTips = this.scoreTipsArr[0];
-                return
-            }
-            if(this.score <= 40) {
-                this.scoreTips = this.scoreTipsArr[1];
-                return
-            }
-            if(this.score <= 60) {
-                this.scoreTips = this.scoreTipsArr[2];
-                return
-            }
-            if(this.score <= 80) {
-                this.scoreTips = this.scoreTipsArr[3];
-                return
-            }
-            if(this.score <= 100) {
-                this.scoreTips = this.scoreTipsArr[4];
-            }
+          let index = Math.ceil(this.score/20)-1;
+          this.scoreTips = this.scoreTipsArr[index];
         }
     },
 }
