@@ -36,8 +36,8 @@ npm run build
 # 效果演示
 
 
-[demo地址](http://cangdu.org/happyfri/)（请用chrome手机模式预览）
-   
+[demo地址](https://cangdu.org/happyfri/)（请用chrome手机模式预览）
+
 ### 移动端扫描下方二维码
 <img src='https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png' width="300" height="300" />
 
@@ -165,3 +165,7 @@ new Vue({
 }).$mount('#app')
 ```
 
+### Donate
+如果觉得这个项目对您有帮助，可以资助一下作者，您的资助将会用做维持服务器的运行。(服务器是一个不小的开销😔)
+
+<img src="https://img30.360buyimg.com/pop/jfs/t25279/113/2637330909/48673/3b7844dc/5bea90baN669fc7fa.png" width="440" height="250"/>
