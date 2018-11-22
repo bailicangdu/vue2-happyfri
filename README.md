@@ -164,7 +164,3 @@ new Vue({
 	store,
 }).$mount('#app')
 ```
-
-## Donate
-
-[donate](https://github.com/bailicangdu/vue2-elm/blob/master/donate.md)
