@@ -39,8 +39,7 @@ npm run build
 
 ### 移动端扫描下方二维码
 
-<img src='https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/ewm.png' width="200" height="200" />
-
+<img src='https://github.com/bailicangdu/vue2-happyfri/blob/master/src/images/demo.png' width="200" height="200" />
 
 
 ## 路由配置
