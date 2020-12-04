@@ -1,8 +1,8 @@
 <template>
   	<section>
     	<header class="top_tips">
-    		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
-    		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
+    		<span class="num_tip" v-if="fatherComponent == 'home'">{{ level }}</span>
+    		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{ itemNum }}</span>
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
