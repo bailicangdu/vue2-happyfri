@@ -167,7 +167,44 @@ const state = {
 			"answer_name": "错误答案",
 			"is_standard_answer": 0
 		}]
-	}],
+	},
+	
+	{
+		"topic_id": 21,
+		"active_topic_id": 4,
+		"type": "MORE",
+		"topic_name": "题目六",
+		"active_id": 1,
+		"active_title": "欢乐星期五标题",
+		"active_topic_phase": "第一周",
+		"active_start_time": "1479139200",
+		"active_end_time": "1482163200",
+		"topic_answer": [{
+			"topic_answer_id": 21,
+			"topic_id": 21,
+			"answer_name": "答案A",
+			"is_standard_answer": 1
+		}, {
+			"topic_answer_id": 22,
+			"topic_id": 21,
+			"answer_name": "答案B",
+			"is_standard_answer": 0
+		}, {
+			"topic_answer_id": 23,
+			"topic_id": 21,
+			"answer_name": "我才是答案",
+			"is_standard_answer": 0
+		}, {
+			"topic_answer_id": 24,
+			"topic_id": 21,
+			"answer_name": "答案D",
+			"is_standard_answer": 0
+		}]
+	}, 
+
+
+
+],
 	answerid: [], //答案id
 }
 
